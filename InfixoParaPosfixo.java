@@ -80,7 +80,7 @@ public class InfixoParaPosfixo {
 
    public static void main(String[] args) throws IOException {
       Scanner t = new Scanner(System.in);
-      System.out.println("Digite a expressão sem espaço: ");
+      System.out.println("Digite a expressão: ");
       String input = t.nextLine();
 
       String output;
@@ -88,7 +88,7 @@ public class InfixoParaPosfixo {
       output = theTrans.converter();
       System.out.println("Notação infixa é " + input + '\n');
       System.out.println("A notação pós-fixa é " + output + '\n');
-      double resultado = calcular(input.split(""));
+      double resultado = calcular(input.split(" "));
       System.out.println("O resultado da expressao é " + resultado + '\n');
    }
 
