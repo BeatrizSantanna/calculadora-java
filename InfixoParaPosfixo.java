@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.Stack;
 
 public class InfixoParaPosfixo {
    private Pilha pilha;
@@ -79,6 +80,8 @@ public class InfixoParaPosfixo {
       output = theTrans.converter(); 
       System.out.println("Notação infixa é " + input + '\n');
       System.out.println("A notação pós-fixa é " + output + '\n');
+      int resultado = calcularNotacaoPosfixa(output);
+      System.out.println("O resultado da expressao é " + resultado + '\n');
    }
    class Pilha {
       private int tamanhoMaximo;
@@ -103,4 +106,46 @@ public class InfixoParaPosfixo {
          return (topo == -1);
       }
    }
+   
+   static int calcularNotacaoPosfixa(String expressao) 
+   { 
+       Stack<Integer> stack=new Stack<>(); 
+         
+       
+       for(int i=0;i<expressao.length();i++) 
+       { 
+           char c=expressao.charAt(i); 
+             
+           if(Character.isDigit(c)) 
+           stack.push(c - '0'); 
+             
+           else
+           { 
+               int val1 = stack.pop(); 
+               int val2 = stack.pop(); 
+                 
+               switch(c) 
+               { 
+                   case '+': 
+                   stack.push(val2+val1); 
+                   break; 
+                     
+                   case '-': 
+                   stack.push(val2- val1); 
+                   break; 
+                     
+                   case '/': 
+                   stack.push(val2/val1); 
+                   break; 
+                     
+                   case '*': 
+                   stack.push(val2*val1); 
+                   break; 
+             } 
+           } 
+       } 
+       return stack.pop();     
+   } 
+     
+
 }
