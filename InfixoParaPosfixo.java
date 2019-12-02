@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.Scanner;
 import java.util.Stack;
 
 public class InfixoParaPosfixo {
@@ -72,8 +73,9 @@ public class InfixoParaPosfixo {
       }
    }
    public static void main(String[] args) throws IOException {
-      System.out.println("Digite a expressão: ");
-      String input = System.console().readLine();
+      Scanner t = new Scanner(System.in);
+      System.out.println("Digite a expressão sem espaço: ");
+      String input = t.nextLine();
       
       String output;
       InfixoParaPosfixo theTrans = new InfixoParaPosfixo(input);
