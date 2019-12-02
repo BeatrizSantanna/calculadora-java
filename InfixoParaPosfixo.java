@@ -140,7 +140,11 @@ public class InfixoParaPosfixo {
                      
                    case '*': 
                    stack.push(val2*val1); 
-                   break; 
+                   break;
+                   
+                   case '^': 
+                   stack.push((int)(Math.pow(val1, val2))); 
+                   break;  
              } 
            } 
        } 
